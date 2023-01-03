@@ -1,0 +1,3 @@
+[submodule "services/blog"]
+	path = services/blog
+	url = git@github.com:wetfish/blog.git

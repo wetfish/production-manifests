@@ -45,3 +45,17 @@ cd $REPO_DIR
 git commit -am "bump blog"
 git push
 ```
+
+## How is this structured:
+```yaml
+# ingress proxy
+# config local to this repo
+services/traefik:
+  - traefik
+
+# https://github.com/wetfish/blog
+services/blog:
+  - blog-web
+  - blog-db
+
+```

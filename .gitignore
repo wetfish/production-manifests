@@ -1,8 +1,0 @@
-env/click.env
-env/danger.env
-env/glitch.env
-env/online.env
-env/wiki.env
-env/webserver.env
-env/mysql.env
-env/*
