@@ -1,0 +1,16 @@
+# traefik "static" config
+
+# development env setup
+# so no tls anything
+log:
+  level: DEBUG
+entryPoints:
+  web:
+    address: ":80"
+
+# dynamic config
+providers:
+  file:
+    directory: "/etc/traefik/dynamic"
+    watch: true
+    debugLogGeneratedTemplate: true

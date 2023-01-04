@@ -1,0 +1,20 @@
+# traefik "dynamic" config
+
+# development env setup
+# so no tls anything
+http:
+  routers:
+    # wetfish.net blogpost frontpage
+    fishblog:
+      # only accept https
+      entrypoints:
+        - "web"
+      rule: "Host("wetfish.net")
+      service: "fishblog"
+
+  services:
+    fishblog:
+      loadBalancer:
+        servers:
+          # "container_name: fishblog-app" in blog compose stack
+          - url: "http://fishblog-app.:2034"

@@ -7,6 +7,10 @@ that is a close replica of the production setup.
 ## How do I get started?
 
 ```bash
+# install docker and docker-compose-plugin
+# create traefik backend network
+docker network create traefik-backend
+
 # clone the repo (recursivly)
 
 mkdir ~/repos
