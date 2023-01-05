@@ -27,7 +27,7 @@ git clone \
   $REPO_DIR
 
 # hack at the code
-cd $REPO_DIR/blog
+cd $REPO_DIR/services/blog
 $EDITOR README.md
 
 # test your changes
@@ -36,11 +36,11 @@ cd $REPO_DIR/traefik
 docker compose up -d
 
 # then bring up whichever project you just edited
-cd $REPO_DIR/blog
+cd $REPO_DIR/services/blog
 docker compose up -d --build --force-recreate && docker compose logs -f
 
 # commit your changes
-cd $REPO_DIR/blog
+cd $REPO_DIR/services/blog
 git commit -m "herp derp"
 git push
 
