@@ -1,3 +1,6 @@
 [submodule "services/blog"]
 	path = services/blog
 	url = git@github.com:wetfish/blog.git
+[submodule "services/danger"]
+	path = services/danger
+	url = git@github.com:wetfish/danger.git
