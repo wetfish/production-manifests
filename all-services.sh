@@ -9,7 +9,7 @@ cd "$SCRIPT_DIR" || exit
 
 # dir with compose file
 # relative to this dir
-PROJECT_DIRS=("traefik" "services/blog")
+PROJECT_DIRS=("traefik" "services/blog" "services/danger")
 
 # ensure they provided a subcommand
 if [ $# -eq 0 ]
@@ -28,14 +28,14 @@ fi
 
 # eval arg and run commands
 case $1 in
-  "stop")
+  "down")
     for DIR in "${PROJECT_DIRS[@]}"; do
       echo "About to run \"docker compose down\" in ${DIR}"
       cd "${SCRIPT_DIR}/${DIR}" && docker compose down || exit
     done
   ;;
 
-  "start")
+  "up")
     for DIR in "${PROJECT_DIRS[@]}"; do
       echo "About to run \"docker compose up -d --force-recreate\" in ${DIR}"
       cd "${SCRIPT_DIR}/${DIR}" && docker compose up -d --force-recreate || exit
