@@ -18,6 +18,13 @@ http:
       rule: "Host(`danger.wetfish.net`)"
       service: "danger"
 
+    # wetfishonline.com
+    online:
+      entrypoints:
+        - "web"
+      rule: "Host(`wetfishonline.com`)"
+      service: "online"
+
   services:
     fishblog:
       loadBalancer:
@@ -26,7 +33,13 @@ http:
           - url: "http://fishblog-app.:2304"
     
     danger:
-      loadbalancer:
+      loadBalancer:
         servers:
           # "container_name: danger-web" in danger compose stack
           - url: "http://danger-web.:80"
+
+    online:
+      loadBalancer:
+        servers:
+          # "container_name: online-web" in online compose stack
+          - url: "http://online-web.:80"

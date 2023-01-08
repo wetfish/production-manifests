@@ -4,3 +4,6 @@
 [submodule "services/danger"]
 	path = services/danger
 	url = git@github.com:wetfish/danger.git
+[submodule "services/online"]
+	path = services/online
+	url = git@github.com:wetfish/online.git
