@@ -24,6 +24,20 @@ http:
         - "web"
       rule: "Host(`wetfishonline.com`)"
       service: "online"
+    
+    # glitch.wetfish.net
+    glitch:
+      entrypoints:
+        - "web"
+      rule: "Host(`glitch.wetfish.net`)"
+      service: "glitch"
+
+    # click.wetfish.net
+    click:
+      entrypoints:
+        - "web"
+      rule: "Host(`click.wetfish.net`)"
+      service: "click"
 
   services:
     fishblog:
@@ -43,3 +57,16 @@ http:
         servers:
           # "container_name: online-web" in online compose stack
           - url: "http://online-web.:80"
+
+    glitch:
+      loadBalancer:
+        servers:
+          # "container_name: glitch-web" in glitch compose stack
+          - url: "http://glitch-web.:80"
+
+    click:
+      loadBalancer:
+        servers:
+          # "container_name: click-web" in click compose stack
+          - url: "http://click-web.:80"
+

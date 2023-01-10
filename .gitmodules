@@ -7,3 +7,9 @@
 [submodule "services/online"]
 	path = services/online
 	url = git@github.com:wetfish/online.git
+[submodule "services/glitch"]
+	path = services/glitch
+	url = git@github.com:wetfish/glitch.git
+[submodule "services/click"]
+	path = services/click
+	url = git@github.com:wetfish/click.git
