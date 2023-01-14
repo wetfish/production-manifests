@@ -13,3 +13,6 @@
 [submodule "services/click"]
 	path = services/click
 	url = git@github.com:wetfish/click.git
+[submodule "services/wiki"]
+	path = services/wiki
+	url = git@github.com:wetfish/wiki.git
