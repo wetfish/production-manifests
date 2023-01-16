@@ -39,6 +39,13 @@ http:
       rule: "Host(`click.wetfish.net`)"
       service: "click"
 
+    # wiki.wetfish.net
+    wiki:
+      entrypoints:
+        - "web"
+      rule: "Host(`wiki.wetfish.net`)"
+      service: "wiki"
+
   services:
     fishblog:
       loadBalancer:
@@ -69,4 +76,9 @@ http:
         servers:
           # "container_name: click-web" in click compose stack
           - url: "http://click-web.:80"
-
+    
+    wiki:
+      loadBalancer:
+        servers:
+          # "container_name: wiki-web" in wiki compose stack
+          - url: "http://wiki-web.:80"
