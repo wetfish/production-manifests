@@ -1,0 +1,18 @@
+[submodule "services/blog"]
+	path = services/blog
+	url = git@github.com:wetfish/blog.git
+[submodule "services/click"]
+	path = services/click
+	url = git@github.com:wetfish/click.git
+[submodule "services/danger"]
+	path = services/danger
+	url = git@github.com:wetfish/danger.git
+[submodule "services/glitch"]
+	path = services/glitch
+	url = git@github.com:wetfish/glitch.git
+[submodule "services/online"]
+	path = services/online
+	url = git@github.com:wetfish/online.git
+[submodule "services/wiki"]
+	path = services/wiki
+	url = git@github.com:wetfish/wiki.git
