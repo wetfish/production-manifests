@@ -5,7 +5,8 @@ services:
     # v2.6.2+ has issues reading strings as arrays from yaml config, stay on 2.6.1 for now
     image: docker.io/traefik:v2.6.1
     restart: unless-stopped
-    env_file: "./traefik.env"
+    env_file: 
+      - "./traefik.env"
     volumes:
       # static config
       - "./conf/static.yml:/etc/traefik/traefik.yml:ro"
