@@ -42,6 +42,19 @@ http:
       middlewares:
         - "ipwhitelist-cloudflare"
       service: "online"
+
+    # staging-forums.wetfish.net
+    online-staging:
+      entrypoints:
+        - "websecure"
+      rule: "Host(`staging-forums.wetfish.net`)"
+      tls:
+        certResolver: letsencrypt
+        options:
+          - mintlsversion
+      middlewares:
+        - "ipwhitelist-cloudflare"
+      service: "online-staging"
     
     # glitch.wetfish.net
     glitch:
@@ -82,6 +95,19 @@ http:
         - "ipwhitelist-cloudflare"
       service: "wiki"
 
+    # wiki.wetfish.net
+    wiki-staging:
+      entrypoints:
+        - "websecure"
+      rule: "Host(`staging-wiki.wetfish.net`)"
+      tls:
+        certResolver: letsencrypt
+        options:
+          - mintlsversion
+      middlewares:
+        - "ipwhitelist-cloudflare"
+      service: "wiki-staging"
+
   services:
     fishblog:
       loadBalancer:
@@ -101,6 +127,12 @@ http:
           # "container_name: online-web" in online compose stack
           - url: "http://online-web.:80"
 
+    online-staging:
+      loadBalancer:
+        servers:
+          # "container_name: online-staging-web" in online compose stack
+          - url: "http://online-staging-web.:80"
+
     glitch:
       loadBalancer:
         servers:
@@ -118,6 +150,12 @@ http:
         servers:
           # "container_name: wiki-web" in wiki compose stack
           - url: "http://wiki-web.:80"
+
+    wiki-staging:
+      loadBalancer:
+        servers:
+          # "container_name: wiki-staging-web" in wiki compose stack
+          - url: "http://wiki-staging-web.:80"
 
   middlewares:
     ipwhitelist-cloudflare:

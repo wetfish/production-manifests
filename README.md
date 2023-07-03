@@ -1,7 +1,9 @@
 # production-manifests
 contains traefik config and submodules for docker compose based deployments
 
-This branch of the repo is for the 2023 new prod server deployment
+This branch of the repo is for the 2023 new prod server deployment, \
+however it also contains the traefik configuration for the staging deployments \
+of wiki and fourms. These are attached to the same traefik-backend network.
 
 ## How do I get started?
 
@@ -32,5 +34,23 @@ cd $REPO_DIR && bash ./fix-subproject-permissions.sh
 cd traefik && docker compose up -d
 
 # start all the stacks at once
-cd $REPO_DIR && bash ./all-service.sh up
+cd $REPO_DIR && bash ./all-services.sh up
+```
+
+## Where is persistent data stored?
+
+```bash
+# blog: posts
+services/blog/config.js
+
+# danger: database
+services/danger/db
+
+# wetfishonline: database, fish/equpipment
+services/online/db
+services/online/storage
+
+# wiki: database, user uploads
+services/wiki/db
+services/wiki/upload # mounted over nfs to storage server
 ```

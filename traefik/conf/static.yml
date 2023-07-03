@@ -17,6 +17,7 @@ entryPoints:
     address: ":443"
     http:
       tls: {}
+      # not 100% if this stanza is required for LE to do the thing properly
       #   domains:
       #     - main: wetfish.net
       #     - main: danger.wetfish.net
@@ -24,6 +25,8 @@ entryPoints:
       #     - main: glitch.wetfish.net
       #     - main: click.wetfish.net
       #     - main: wiki.wetfish.net
+      #     - main: staging-wiki.wetfish.net
+      #     - main: staging-forums.wetfish.net
 
 # dynamic config
 providers:
@@ -37,8 +40,12 @@ certificatesResolvers:
     acme:
       email: "letsencrypt@wetfish.net"
       storage: "/etc/traefik/acme/acme.json"
-      httpChallenge:
-        entryPoint: web
+      dnschallenge:
+        provider: "cloudflare"
+        delayBeforeCheck: 30
+      # httpChallenge:
+      #   entryPoint: web
+
 
 accessLog:
   filePath: "/var/log/traefik/access.log"
