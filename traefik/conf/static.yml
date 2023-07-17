@@ -40,11 +40,8 @@ certificatesResolvers:
     acme:
       email: "letsencrypt@wetfish.net"
       storage: "/etc/traefik/acme/acme.json"
-      dnschallenge:
-        provider: "cloudflare"
-        delayBeforeCheck: 30
-      # httpChallenge:
-      #   entryPoint: web
+      httpChallenge:
+        entryPoint: web
 
 
 accessLog:
