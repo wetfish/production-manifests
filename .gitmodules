@@ -4,3 +4,6 @@
 [submodule "services/online"]
 	path = services/online-staging
 	url = git@github.com:wetfish/online.git
+[submodule "services/home-staging"]
+	path = services/home-staging
+	url = https://github.com/wetfish/wetfish.net

@@ -9,7 +9,7 @@ cd "$SCRIPT_DIR" || exit
 
 # dir with compose file
 # relative to this dir
-PROJECT_DIRS=("services/online-staging" "services/wiki-staging")
+PROJECT_DIRS=("services/home-staging" "services/online-staging" "services/wiki-staging")
 
 # ensure they provided a subcommand
 if [ $# -eq 0 ]
