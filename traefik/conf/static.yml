@@ -3,7 +3,7 @@
 # development env setup
 # so no tls anything
 log:
-  level: DEBUG
+  level: INFO
 entryPoints:
   web:
     address: ":80"
@@ -25,6 +25,7 @@ entryPoints:
       #     - main: glitch.wetfish.net
       #     - main: click.wetfish.net
       #     - main: wiki.wetfish.net
+      #     - main: staging.wetfish.net
       #     - main: staging-wiki.wetfish.net
       #     - main: staging-forums.wetfish.net
 

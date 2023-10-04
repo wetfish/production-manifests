@@ -16,7 +16,20 @@ http:
       middlewares:
         - "ipwhitelist-cloudflare"
       service: "fishblog"
-    
+
+    # staging.wetfish.net - Wetfish Home Page
+    staging-wetfish-home:
+      entrypoints:
+        - "websecure"
+      rule: "Host(`staging.wetfish.net`)"
+      tls:
+        certResolver: letsencrypt
+        options:
+          - mintlsversion
+      middlewares:
+        - "ipwhitelist-cloudflare"
+      service: "staging-wetfish-home"
+
     # danger.wetfish.net
     danger:
       entrypoints:
@@ -55,7 +68,7 @@ http:
       middlewares:
         - "ipwhitelist-cloudflare"
       service: "online-staging"
-    
+
     # glitch.wetfish.net
     glitch:
       entrypoints:
@@ -114,6 +127,12 @@ http:
         servers:
           # "container_name: fishblog-app" in blog compose stack
           - url: "http://fishblog-app.:2304"
+
+    staging-wetfish-home:
+      loadBalancer:
+        servers:
+          # "container_name: staging-wetfish-home" in blog compose stack
+          - url: "http://staging-wetfish-home.:80"
 
     danger:
       loadBalancer:
