@@ -4,8 +4,8 @@
 # so no tls anything
 http:
   routers:
-    # wetfish.net blogpost frontpage
-    fishblog:
+    # wetfish.net - Wetfish Home Page
+    wetfish-home:
       entrypoints:
         - "websecure"
       rule: "Host(`wetfish.net`)"
@@ -15,7 +15,7 @@ http:
           - mintlsversion
       middlewares:
         - "ipwhitelist-cloudflare"
-      service: "fishblog"
+      service: "wetfish-home"
 
     # staging.wetfish.net - Wetfish Home Page
     staging-wetfish-home:
@@ -122,16 +122,16 @@ http:
       service: "wiki-staging"
 
   services:
-    fishblog:
+    wetfish-home:
       loadBalancer:
         servers:
-          # "container_name: fishblog-app" in blog compose stack
-          - url: "http://fishblog-app.:2304"
+          # "container_name: wetfish-home" in wetfish.net compose stack
+          - url: "http://wetfish-home.:80"
 
     staging-wetfish-home:
       loadBalancer:
         servers:
-          # "container_name: staging-wetfish-home" in blog compose stack
+          # "container_name: staging-wetfish-home" in wetfish.net compose stack
           - url: "http://staging-wetfish-home.:80"
 
     danger:

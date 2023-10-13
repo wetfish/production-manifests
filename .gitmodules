@@ -22,3 +22,6 @@
 	path = services/wiki
 	url = git@github.com:wetfish/wiki.git
 	branch = release
+[submodule "services/home"]
+	path = services/home
+	url = https://github.com/wetfish/wetfish.net
