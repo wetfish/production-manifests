@@ -45,16 +45,16 @@ certificatesResolvers:
         entryPoint: web
 
 
-accessLog:
-  filePath: "/var/log/traefik/access.log"
-  format: json
-  fields:
-    defaultMode: keep
-    names:
-      ClientUsername: keep
-    headers:
-      defaultMode: keep
-      names:
-          User-Agent: keep
-          Authorization: drop
-          Content-Type: keep
+# accessLog:
+#   filePath: "/var/log/traefik/access.log"
+#   format: json
+#   fields:
+#     defaultMode: keep
+#     names:
+#       ClientUsername: keep
+#     headers:
+#       defaultMode: keep
+#       names:
+#           User-Agent: keep
+#           Authorization: drop
+#           Content-Type: keep
